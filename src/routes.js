@@ -6,6 +6,12 @@ router.get('/', (req, res) => {
 });
 
 router.post('/user', async (req, res) => {
+  // check whether email exits
+  const emailExits = await User.findOne({
+    email: req.body.email
+  });
+  if (emailExits) return res.status(400).send(`Email already exits`);
+
   const user = new User({
     userName: req.body.userName,
     email: req.body.email,
