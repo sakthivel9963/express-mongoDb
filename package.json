@@ -1,0 +1,29 @@
+{
+  "name": "express-mongoDb",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakthivel9963/express-mongoDb.git"
+  },
+  "keywords": [],
+  "author": "sakthivel <sakthivel9963@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sakthivel9963/express-mongoDb/issues"
+  },
+  "homepage": "https://github.com/sakthivel9963/express-mongoDb#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
