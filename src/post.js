@@ -3,7 +3,7 @@ const Post = require('../model/post');
 
 router.get('/', async (req, res) => {
   try {
-    const posts = await Post.find();
+    const posts = await Post.find().sort({ name: -1 });
     res.send(posts);
   } catch (error) {
     console.error(error);
