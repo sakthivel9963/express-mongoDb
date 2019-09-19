@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const User = require('../model/user');
+const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 
 router.get('/', (req, res) => {
   res.send(`sakthivel`);
@@ -35,9 +37,16 @@ router.post('/loginCheck', async (req, res) => {
 
   // check password
   if (user.password !== req.body.password)
-    return res.status(400).send('password is incorrect');
+    return res.status(400).send('Email or password is incorrect');
 
-  res.send('login success');
+  const userData = { _id: user._id };
+  const token = jwt.sign(userData, process.env.TOKEN_SECRET);
+  res.header('auth-token', token);
+  res.send(token);
+});
+
+router.get('/posts', auth, async (req, res) => {
+  res.send(req.user);
 });
 
 module.exports = router;
