@@ -26,4 +26,18 @@ router.post('/user', async (req, res) => {
   }
 });
 
+router.post('/loginCheck', async (req, res) => {
+  // check whether email does not exits
+  const user = await User.findOne({
+    email: req.body.email
+  });
+  if (!user) return res.status(400).send(`Email or password is incorrect`);
+
+  // check password
+  if (user.password !== req.body.password)
+    return res.status(400).send('password is incorrect');
+
+  res.send('login success');
+});
+
 module.exports = router;
