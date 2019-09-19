@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../model/user');
 const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
+const post = require('./post');
 
 router.get('/', (req, res) => {
   res.send(`sakthivel`);
@@ -48,5 +49,7 @@ router.post('/loginCheck', async (req, res) => {
 router.get('/posts', auth, async (req, res) => {
   res.send(req.user);
 });
+
+router.use('/post', post);
 
 module.exports = router;
