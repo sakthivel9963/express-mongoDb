@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const User = require('../model/user');
 const jwt = require('jsonwebtoken');
+const User = require('../model/user');
 const auth = require('../middleware/auth');
 const post = require('./post');
 
@@ -11,14 +11,14 @@ router.get('/', (req, res) => {
 router.post('/user', async (req, res) => {
   // check whether email exits
   const emailExits = await User.findOne({
-    email: req.body.email
+    email: req.body.email,
   });
   if (emailExits) return res.status(400).send(`Email already exits`);
 
   const user = new User({
     userName: req.body.userName,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
   });
   try {
     const saveUser = await user.save();
@@ -32,7 +32,7 @@ router.post('/user', async (req, res) => {
 router.post('/loginCheck', async (req, res) => {
   // check whether email does not exits
   const user = await User.findOne({
-    email: req.body.email
+    email: req.body.email,
   });
   if (!user) return res.status(400).send(`Email or password is incorrect`);
 

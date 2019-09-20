@@ -4,7 +4,7 @@ mongoose.connect(
   process.env.DBURL,
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   },
   () => {
     console.log(`connected`);
