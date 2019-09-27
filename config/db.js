@@ -6,7 +6,8 @@ mongoose.connect(
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
-  () => {
+  error => {
+    if (error) return console.error(error);
     console.log(`connected`);
   }
 );
