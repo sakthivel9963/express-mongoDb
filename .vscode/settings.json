@@ -1,4 +1,5 @@
 {
+  // Prettier setting
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
   "prettier.disableLanguages": ["javascript", "javascriptreact"],
@@ -6,5 +7,8 @@
     "editor.formatOnSave": false
   },
   "prettier.trailingComma": "es5",
-  "prettier.arrowParens": "always"
+  "prettier.arrowParens": "always",
+  // Eslint setting
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true
 }
